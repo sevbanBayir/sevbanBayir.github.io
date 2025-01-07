@@ -1,14 +1,14 @@
 #  The contact options.
-
-- type: github
-  icon: "fab fa-github"
-
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
-
-- type: email
-  icon: "fas fa-envelope"
-  noblank: true # open link in current tab
+#
+#- type: github
+#  icon: "fab fa-github"
+#
+#- type: twitter
+#  icon: "fa-brands fa-x-twitter"
+#
+#- type: email
+#  icon: "fas fa-envelope"
+#  noblank: true # open link in current tab
 
 #- type: rss
 #  icon: "fas fa-rss"
@@ -23,9 +23,9 @@
 #   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
 #   url:  ''                  # Fill with your Linkedin homepage
 #
- - type: stack-overflow
-   icon: 'fab fa-stack-overflow'
-   url:  'https://stackoverflow.com/users/17064732/sevban-bay%c4%b1r'
+# - type: stack-overflow
+#   icon: 'fab fa-stack-overflow'
+#   url:  'https://stackoverflow.com/users/17064732/sevban-bay%c4%b1r'
 #
 # - type: bluesky
 #   icon: 'fa-brands fa-bluesky'
