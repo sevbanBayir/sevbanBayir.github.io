@@ -3,7 +3,7 @@ title: Sevban Bayir
 description: >-
   Personal blog about software engineering, mobile development, 
   and architectural patterns.
-url: "" # Will be set automatically by GitHub Pages
+url: "https://sevbanbayir.github.io"
 baseurl: "" # Leave empty for username.github.io repos
 
 # Theme - minima is fully supported by GitHub Pages
