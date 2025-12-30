@@ -53,4 +53,3 @@ exclude:
   - vendor
   - README.md
   - LICENSE
-  - "*.pdf"

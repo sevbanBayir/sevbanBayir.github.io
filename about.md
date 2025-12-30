@@ -1,7 +1,7 @@
 ---
+layout: page
 title: About
-icon: fas fa-info-circle
-order: 4
+permalink: /about/
 ---
 
 ## About Me
@@ -15,8 +15,6 @@ I share my learnings and experiences with various technologies including:
 - **Modern Frameworks** — Jetpack Compose, SwiftUI
 
 ### What You'll Find Here
-
-This blog covers my explorations in:
 
 🏗️ **Software Architecture** — Deep dives into patterns like RIBs, MVI, and Clean Architecture
 
