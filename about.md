@@ -6,6 +6,8 @@ permalink: /about/
 
 ## About Me
 
+**TEST: Deploy works! - Dec 30**
+
 I'm Sevban Bayir, a software engineer passionate about mobile development and clean architecture patterns.
 
 I share my learnings and experiences with various technologies including:
