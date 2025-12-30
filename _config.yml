@@ -14,9 +14,8 @@ minima:
   date_format: "%b %-d, %Y"
 
 # Author
-author:
-  name: Sevban Bayir
-  url: /about/
+author: "Sevban Bayir"
+author_url: "/about/"
 
 # Build settings
 future: true
