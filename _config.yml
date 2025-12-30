@@ -16,6 +16,7 @@ minima:
 # Author
 author:
   name: Sevban Bayir
+  url: /about/
 
 # Build settings
 future: true
