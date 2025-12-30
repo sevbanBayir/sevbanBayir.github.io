@@ -1,52 +1,47 @@
 # Site Settings
 title: Sevban Bayir
+tagline: Android Developer
 description: >-
   Personal blog about software engineering, mobile development, 
   and architectural patterns.
 url: "https://sevbanbayir.github.io"
-baseurl: "" # Leave empty for username.github.io repos
+baseurl: ""
 
-# Theme - minima is fully supported by GitHub Pages
-theme: minima
-
-# Minima theme settings
-minima:
-  skin: dark
-  date_format: "%b %-d, %Y"
-  social_links:
-    # - { platform: github, user_url: "https://github.com/sevban-bayir" }
-    # - { platform: linkedin, user_url: "https://linkedin.com/in/your-username" }
-    # - { platform: twitter, user_url: "https://twitter.com/your-username" }
+# Theme
+remote_theme: cotes2020/jekyll-theme-chirpy
 
 # Author
 author:
   name: Sevban Bayir
+
+# Social links (uncomment and fill in)
+social:
+  name: Sevban Bayir
   # email: your-email@example.com
+  links:
+    # - https://github.com/sevbanBayir
+    # - https://linkedin.com/in/your-username
 
 # Build settings
 future: true
 markdown: kramdown
 highlighter: rouge
 
+# Timezone
+timezone: Europe/Istanbul
+
 # Pagination
+paginate: 10
+
+# Permalink structure  
+permalink: /posts/:title/
+
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
-
-paginate: 10
-paginate_path: "/page:num/"
-
-# Permalink structure
-permalink: /posts/:title/
-
-# Header pages (navigation)
-header_pages:
-  - about.md
-  - archives.md
-
-# Timezone
-timezone: Europe/Istanbul
+  - jekyll-remote-theme
 
 # Exclude from processing
 exclude:

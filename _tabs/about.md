@@ -1,12 +1,10 @@
 ---
-layout: page
 title: About
-permalink: /about/
+icon: fas fa-info-circle
+order: 4
 ---
 
 ## About Me
-
-**TEST: Deploy works! - Dec 30**
 
 I'm Sevban Bayir, a software engineer passionate about mobile development and clean architecture patterns.
 
