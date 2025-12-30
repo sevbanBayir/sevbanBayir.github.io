@@ -1,0 +1,60 @@
+# Site Settings
+title: Sevban Bayir
+description: >-
+  Personal blog about software engineering, mobile development, 
+  and architectural patterns.
+url: "" # Will be set automatically by GitHub Pages
+baseurl: "" # Leave empty for username.github.io repos
+
+# Theme - minima is fully supported by GitHub Pages
+theme: minima
+
+# Minima theme settings
+minima:
+  skin: dark
+  date_format: "%b %-d, %Y"
+  social_links:
+    # - { platform: github, user_url: "https://github.com/sevban-bayir" }
+    # - { platform: linkedin, user_url: "https://linkedin.com/in/your-username" }
+    # - { platform: twitter, user_url: "https://twitter.com/your-username" }
+
+# Author
+author:
+  name: Sevban Bayir
+  # email: your-email@example.com
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Pagination
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+paginate: 10
+paginate_path: "/page:num/"
+
+# Permalink structure
+permalink: /posts/:title/
+
+# Header pages (navigation)
+header_pages:
+  - about.md
+  - archives.md
+
+# Timezone
+timezone: Europe/Istanbul
+
+# Exclude from processing
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - LICENSE
+  - "*.pdf"
