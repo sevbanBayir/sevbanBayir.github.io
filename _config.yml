@@ -29,12 +29,18 @@ timezone: Europe/Istanbul
 paginate: 10
 paginate_path: "/page:num/"
 
+# Collections
+collections:
+  tit_bits:
+    output: true
+
 # Permalink structure  
 permalink: /posts/:title/
 
 # Navigation
 header_pages:
   - about.md
+  - tit-bits.md
 
 # Plugins
 plugins:
