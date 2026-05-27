@@ -1,0 +1,72 @@
+---
+layout: default
+---
+
+<article class="post-container animate-fade-in" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+      {%- if page.categories -%}
+        <span class="meta-dot">&middot;</span>
+        <span class="post-category">{{ page.categories | join: ", " }}</span>
+      {%- endif -%}
+      
+      {%- assign words = content | number_of_words -%}
+      {%- if words < 360 -%}
+        <span class="meta-dot">&middot;</span>
+        <span class="read-time">1 min read</span>
+      {%- else -%}
+        <span class="meta-dot">&middot;</span>
+        <span class="read-time">{{ words | divided_by: 180 }} min read</span>
+      {%- endif -%}
+    </div>
+    
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    
+    {%- if page.description -%}
+      <p class="post-description">{{ page.description }}</p>
+    {%- endif -%}
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <!-- Tag List in Post -->
+  {%- if page.tags.size > 0 -%}
+    <div class="post-tags-container">
+      <span class="tags-label">Tags:</span>
+      <div class="post-tags-list">
+        {%- for tag in page.tags -%}
+          <span class="post-tag">#{{ tag }}</span>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <hr class="post-divider" />
+
+  <!-- Next/Prev Navigation -->
+  <nav class="post-navigation">
+    <div class="nav-column">
+      {%- if page.previous -%}
+        <a class="nav-prev-link" href="{{ page.previous.url | relative_url }}">
+          <span class="nav-arrow">&larr; Previous</span>
+          <span class="nav-title-text">{{ page.previous.title | truncate: 45 }}</span>
+        </a>
+      {%- endif -%}
+    </div>
+    <div class="nav-column nav-column-right">
+      {%- if page.next -%}
+        <a class="nav-next-link" href="{{ page.next.url | relative_url }}">
+          <span class="nav-arrow">Next &rarr;</span>
+          <span class="nav-title-text">{{ page.next.title | truncate: 45 }}</span>
+        </a>
+      {%- endif -%}
+    </div>
+  </nav>
+
+</article>

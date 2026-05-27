@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  {%- feed_meta -%}
+  
+  <!-- Favicons -->
+  <link rel="shortcut icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/favicon.png' | relative_url }}">
+</head>
+<body>
+
+  <!-- Minimal Classy Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="site-title" href="{{ '/' | relative_url }}">
+        sevban<span class="accent-dot">.</span>
+      </a>
+      
+      <nav class="site-nav">
+        <div class="nav-links">
+          <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="{{ '/' | relative_url }}">blog</a>
+          <a class="nav-link {% if page.url contains '/tit-bits' %}active{% endif %}" href="{{ '/tit-bits/' | relative_url }}">tit-bits</a>
+          <a class="nav-link {% if page.url contains '/about' %}active{% endif %}" href="{{ '/about/' | relative_url }}">about</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="page-content" aria-label="Content">
+    <div class="main-wrapper">
+      {{ content }}
+    </div>
+  </main>
+
+  <!-- Minimal Classy Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.title }}. Crafted with intent.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="https://github.com/sevbanBayir" target="_blank" rel="noopener noreferrer">github</a>
+          <span class="separator">/</span>
+          <a href="https://linkedin.com/in/zsmb13/" target="_blank" rel="noopener noreferrer">linkedin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

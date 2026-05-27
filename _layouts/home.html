@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+<div class="home-container">
+  
+  <!-- Sleek Intro Section -->
+  <section class="intro-section animate-fade-in">
+    <h1 class="intro-heading">Architecting robust mobile systems.</h1>
+    <p class="intro-text">
+      I'm <span class="text-highlight">Sevban Bayır</span>, a software engineer focused on mobile development, native frameworks (Jetpack Compose & SwiftUI), and scalable architecture patterns like RIBs, MVVM, and Clean Architecture. Here, I write about deep technical concepts, systems design, and engineering practices.
+    </p>
+  </section>
+
+  <!-- Post List Section -->
+  <section class="posts-section animate-slide-up">
+    <h2 class="section-title">Writings</h2>
+    
+    <div class="posts-list">
+      {%- if site.posts.size > 0 -%}
+        {%- for post in site.posts -%}
+          <article class="post-card">
+            <header class="post-card-header">
+              <div class="post-card-meta">
+                <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}">
+                  {{ post.date | date: "%B %-d, %Y" }}
+                </time>
+                {%- if post.categories -%}
+                  <span class="meta-dot">&middot;</span>
+                  <span class="post-card-category">{{ post.categories | join: ", " }}</span>
+                {%- endif -%}
+              </div>
+              <h3 class="post-card-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+              </h3>
+            </header>
+            
+            {%- if post.description or post.excerpt -%}
+              <p class="post-card-excerpt">
+                {{ post.description | default: post.excerpt | strip_html | truncatewords: 30 }}
+              </p>
+            {%- endif -%}
+            
+            {%- if post.tags.size > 0 -%}
+              <div class="post-card-tags">
+                {%- for tag in post.tags -%}
+                  <span class="tag-badge">#{{ tag }}</span>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      {%- else -%}
+        <p class="no-posts">No articles published yet.</p>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
