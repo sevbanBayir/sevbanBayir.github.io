@@ -6,21 +6,21 @@ permalink: /about/
 
 ## About Me
 
-I'm Sevban Bayir, a software engineer passionate about mobile development and clean architecture patterns.
+I'm Sevban Bayir, a software engineer passionate about modern systems engineering, Kotlin, and clean architecture patterns.
 
 I share my learnings and experiences with various technologies including:
 
-- **Mobile Development** — Android, iOS, Kotlin, Swift
-- **Architecture Patterns** — RIBs, MVVM, Clean Architecture
-- **Modern Frameworks** — Jetpack Compose, SwiftUI
+- **Cross-Platform & Mobile** — Kotlin Multiplatform (KMP), Android (Jetpack Compose, Kotlin)
+- **Backend Services** — Spring Boot with Kotlin, modern APIs
+- **Architecture Patterns** — RIBs, MVVM, MVI, Clean Architecture
 
 ### What You'll Find Here
 
 🏗️ **Software Architecture** — Deep dives into patterns like RIBs, MVI, and Clean Architecture
 
-📱 **Mobile Development** — Android and iOS development tips, tutorials, and insights
+📱 **Systems Engineering** — KMP, native Android development, and backend systems with Spring Boot
 
-🔧 **Engineering Practices** — Testing, CI/CD, and development workflows
+🔧 **Engineering Practices** — Testing (including coroutines, StateFlows), CI/CD, and robust workflows
 
 ---
 

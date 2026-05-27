@@ -14,13 +14,26 @@ layout: default
         <span class="post-category">{{ page.categories | join: ", " }}</span>
       {%- endif -%}
       
-      {%- assign words = content | number_of_words -%}
-      {%- if words < 360 -%}
+      {%- assign post_parts = content | split: '<pre' -%}
+      {%- assign plain_text = "" -%}
+      {%- for part in post_parts -%}
+        {%- if forloop.first -%}
+          {%- assign plain_text = plain_text | append: part -%}
+        {%- else -%}
+          {%- assign parts2 = part | split: '</pre>' -%}
+          {%- if parts2.size > 1 -%}
+            {%- assign plain_text = plain_text | append: parts2[1] -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- assign words = plain_text | strip_html | number_of_words -%}
+      {%- assign read_time_mins = words | divided_by: 180 -%}
+      {%- if read_time_mins < 1 -%}
         <span class="meta-dot">&middot;</span>
         <span class="read-time">1 min read</span>
       {%- else -%}
         <span class="meta-dot">&middot;</span>
-        <span class="read-time">{{ words | divided_by: 180 }} min read</span>
+        <span class="read-time">{{ read_time_mins }} min read</span>
       {%- endif -%}
     </div>
     
