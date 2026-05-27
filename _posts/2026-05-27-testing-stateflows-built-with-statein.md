@@ -30,8 +30,6 @@ This is a pure backing property and does not have any side effects. The former o
 
 In this article I will try to reduce (but not completely take it down unfortunately) these side effects and try to explain what actually happens under the hood. So, in some sense this should give you more confidence than not knowing anything and having to blindly assert on only the final state of the StateFlows.
 
----
-
 ## The Setup
 
 This is a toy ViewModel from the reproduction repo that simulates frequent updates to state flows and how to test them.
@@ -107,8 +105,6 @@ fun `Case 4 - asStateFlow - all 5 emissions observed`() = runTest {
 
 Which means you can catch every single emission as you expected and which is normal and intuitive.
 At this point if you don’t need any fine-grained assertion you’d simply go assert on .value property of the StateFlow and if you do need fine-grained access to emission they are simply there deterministically.
-
----
 
 ## When Things Get Messed Up
 
@@ -189,8 +185,6 @@ If the slot is already `PENDING` when a new value is written, the new value sile
 
 Under `StandardTestDispatcher`, the slot stays PENDING across multiple rapid updates because the collector is queued and cannot run between non-suspending lines. Under `UnconfinedTestDispatcher`, the collector runs inline after every update, resetting the slot to NONE before the next update fires.
 
----
-
 ## What `stateIn` Actually Does
 
 This is the part that is not obvious from the documentation.
@@ -225,8 +219,6 @@ _uiState  ←── incrementAsync
 
 The relay introduces an **extra conflation point**. Even if Turbine is Unconfined, it never sees an intermediate value that the relay already conflated before forwarding to `sharedState`.
 
----
-
 ## The Root Cause: Who Is Actually Collecting `_uiState`?
 
 In the original setup, `stateIn` is passed `viewModelScope`:
@@ -257,8 +249,6 @@ delay(1000)                                      // ← first suspension point
 ```
 
 When ① fires, the relay’s slot flips to PENDING and the relay is queued. When ② fires, the slot is already PENDING — the value is overwritten, nothing new is enqueued. Same for ③. When `delay(1000)` finally suspends `incrementAsync`, the relay runs for the first time and reads `_uiState.value` — which is only ③’s value. Updates ① and ② are gone.
-
----
 
 ## Attempts to Fix It
 
@@ -355,8 +345,6 @@ _uiState.update { it.copy(isLoading = true) }
 
 These two last attempts will never make in to production since we must strictly avoid changing prod code in favor of testing. Plus, they may not be ever needed.
 
----
-
 ## A Subtle Side Effect: `onStart` Mutation and `initialValue`
 
 When `loadInitialCounter()` mutates `_uiState` (e.g., increments the count) and contains a suspension point, there is an important timing effect on what Turbine observes.
@@ -388,8 +376,6 @@ virtual time advances → onStart resumes → increment() fires
 The suspension point is a hard guarantee. The relay physically cannot write to `sharedState` until virtual time is advanced. `awaitItem()` always wins because the relay is not racing — it is stopped.
 
 Here you can see how complex the things are being, in every step of this onStart approach. There are so much going on and you have to keep these in mind if you want both the confident tests and the behavior onStart + WhileSubscribed provides.
-
----
 
 ## The Final Setup That Works
 
@@ -444,8 +430,6 @@ UnconfinedTestDispatcher(mainDispatcherExtension.testDispatcher.scheduler)
 
 With `delay()` between updates in production code and `Unconfined` relay in tests, all 5 emissions are observable. Without `delay()` between updates and with a suspended `onStart`, only 3 are observable — which may be acceptable depending on what you actually need to assert.
 
----
-
 ## Summary: Which Solution Should You Choose?
 
 When deciding how to handle state collection in your codebase, consider this decision matrix:
@@ -459,13 +443,9 @@ When deciding how to handle state collection in your codebase, consider this dec
    * *How:* Inject an `UnconfinedTestDispatcher` sharing the main test scheduler into your custom `sharingScope` in tests.
    * *Observability:* You'll get **5 of 5 emissions** if your mock setup runs synchronously in tests, and **3 of 5** (conflating rapid updates) if your `onStart` suspends.
 
----
-
 ## What I Learned
 
 As you can see, the advised initial data loading approach by skydoves and google itself contains much more quirks in it when you want high confidence and deterministic tests. So, you must mind your decision thoroughly when adopting onStart + WhileSubscribed approach. You can get the source code for all cases i demonstrated here and more on [this reproduction repo](https://github.com/sevbanBayir/TestingExperiment).
-
----
 
 ## References
 
