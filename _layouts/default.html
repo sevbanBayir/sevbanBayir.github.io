@@ -9,10 +9,12 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&family=League+Spartan:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  <!-- Prism.js Syntax Highlighting Theme -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
   {%- feed_meta -%}
   
   <!-- Favicons -->
@@ -31,7 +33,7 @@
       <nav class="site-nav">
         <div class="nav-links">
           <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="{{ '/' | relative_url }}">blog</a>
-          <a class="nav-link {% if page.url contains '/tit-bits' %}active{% endif %}" href="{{ '/tit-bits/' | relative_url }}">tit-bits</a>
+          <a class="nav-link {% if page.url contains '/tid-bits' %}active{% endif %}" href="{{ '/tid-bits/' | relative_url }}">tid-bits</a>
           <a class="nav-link {% if page.url contains '/about' %}active{% endif %}" href="{{ '/about/' | relative_url }}">about</a>
         </div>
       </nav>
@@ -61,5 +63,9 @@
     </div>
   </footer>
 
+  <!-- Prism.js Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="{{ '/assets/js/copy-code.js' | relative_url }}"></script>
 </body>
 </html>

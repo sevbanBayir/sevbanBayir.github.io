@@ -1,5 +1,21 @@
+# Monkey-patch Object to restore 'tainted?', 'taint', and 'untaint' which were removed in Ruby 3.2
+class Object
+  def tainted?
+    false
+  end
+  def taint
+    self
+  end
+  def untaint
+    self
+  end
+end
+
 source "https://rubygems.org"
 
+gem "csv"
+gem "bigdecimal"
+gem "webrick"
 gem "github-pages", group: :jekyll_plugins
 
 group :jekyll_plugins do

@@ -30,4 +30,5 @@ node_modules/
 # Local development
 .env
 *.log
+scratch/
 

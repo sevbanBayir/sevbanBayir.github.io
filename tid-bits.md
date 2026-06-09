@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Tit-Bits
-permalink: /tit-bits/
+title: Tid-Bits
+permalink: /tid-bits/
 ---
 
 Here are some minimal notes and code snippets.
 
 <ul class="post-list">
-  {% for note in site.tit_bits %}
+  {% for note in site.tid_bits %}
     <li>
       <span class="post-meta">{{ note.date | date: "%b %-d, %Y" }}</span>
       <h3>

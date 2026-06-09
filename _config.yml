@@ -20,7 +20,10 @@ author_url: "/about/"
 # Build settings
 future: true
 markdown: kramdown
-highlighter: rouge
+highlighter: none
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
 
 # Timezone
 timezone: Europe/Istanbul
@@ -31,7 +34,7 @@ paginate_path: "/page:num/"
 
 # Collections
 collections:
-  tit_bits:
+  tid_bits:
     output: true
 
 # Permalink structure  
@@ -40,7 +43,7 @@ permalink: /posts/:title/
 # Navigation
 header_pages:
   - about.md
-  - tit-bits.md
+  - tid-bits.md
 
 # Plugins
 plugins:
